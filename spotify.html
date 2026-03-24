@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeyad_MegaPlayer</title>
+        <link rel="icon" type="image/png" href="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/spotify.css">
+</head>
+<body>
+    <div class="menu-toggle">
+        <!-- <i class="fas fa-bars"></i> -->
+    </div>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-music logo-icon"></i>
+                <span>MegaPlayer</span>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Menu</div>
+                <div class="nav-item active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" data-section="browse">
+                    <i class="fas fa-compass"></i>
+                    <span>Browse</span>
+                </div>
+                <div class="nav-item" data-section="library">
+                    <i class="fas fa-book"></i>
+                    <span>Your Library</span>
+                </div>
+                <div class="nav-item" data-section="radio">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <span>Radio</span>
+                </div>
+                <div class="nav-item" data-section="podcasts">
+                    <i class="fas fa-podcast"></i>
+                    <span>NewsPaper</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Your Collection</div>
+                <div class="nav-item" data-section="liked">
+                    <i class="fas fa-heart"></i>
+                    <span>Liked Songs</span>
+                </div>
+                <div class="nav-item" data-section="playlists">
+                    <i class="fas fa-list"></i>
+                    <span>Playlists</span>
+                </div>
+                <div class="nav-item" data-section="playlist-detail">
+                    <i class="fas fa-music"></i>
+                    <span>Current Playlist</span>
+                </div>
+                <div class="nav-item" data-section="upload">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Music</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Discover</div>
+                <div class="nav-item" data-section="discover">
+                    <i class="fas fa-star"></i>
+                    <span>Recommended</span>
+                </div>
+                <!-- <div class="nav-item" data-section="charts">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Charts</span>
+                </div> -->
+                <!-- <div class="nav-item" data-section="events">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events</span>
+                </div> -->
+            
+            <div class="nav-section">
+                <div class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+                <div class="nav-item" data-section="stats">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Statistics</span>
+                </div>
+                <div class="nav-item" data-section="game">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Music Quiz</span>
+                </div>
+            </div>
+        </div>
+            </div>
+
+        
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Home Section -->
+            <div id="home-section" class="section active">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for songs, artists, or genres...">
+                </div>
+                
+                <h2 class="section-title">Welcome Back, Listener!</h2>
+                
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-value">124</div>
+                        <div class="stat-label">Songs Played Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Minutes Listened</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">New Artists</div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Recently Played</h2>
+                <div class="recently-played-grid grid"></div>
+                
+                <h2 class="section-title">Popular Artists</h2>
+                <div class="popular-artists-grid grid"></div>
+                
+                <h2 class="section-title">Featured Albums</h2>
+                <div class="featured-albums-grid grid"></div>
+                
+                <h2 class="section-title">Recommended For You</h2>
+                <div class="recommended-grid grid"></div>
+            </div>
+            
+            <!-- Browse Section -->
+            <div id="browse-section" class="section">
+                <h2 class="section-title">Browse by Genre</h2>
+                <div class="genre-selection">
+                    <div class="genre-card" data-genre="Pop" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')">
+                        <span>Pop</span>
+                    </div>
+                    <div class="genre-card" data-genre="Rock" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')">
+                        <span>Rock</span>
+                    </div>
+                    <div class="genre-card" data-genre="Electronic" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')">
+                        <span>Electronic</span>
+                    </div>
+                    <div class="genre-card" data-genre="Cartoon Song" style="background-image: url('https://i.pinimg.com/736x/96/5e/b4/965eb4d3406d44108659fab9c4ad8678.jpg')">
+                        <span>Cartoon Song</span>
+                    </div>
+                    <div class="genre-card" data-genre="Jazz" style="background-image: url('https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')">
+                        <span>Jazz</span>
+                    </div>
+                    <div class="genre-card" data-genre="Metal" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')">
+                        <span>Metal</span>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">New Releases</h2>
+                <div class="new-releases-grid grid"></div>
+                
+                <h2 class="section-title">Popular Songs</h2>
+                <div class="browse-songs-grid grid"></div>
+                
+                <h2 class="section-title">Mood & Activity</h2>
+                <div class="mood-selection grid" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));">
+                    <div class="card" data-mood="workout">
+                        <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')"></div>
+                        <h3>Workout</h3>
+                        <p>High energy tracks</p>
+                    </div>
+                    <div class="card" data-mood="chill">
+                        <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')"></div>
+                        <h3>Chill</h3>
+                        <p>Relaxing vibes</p>
+                    </div>
+                    <div class="card" data-mood="focus">
+                        <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')"></div>
+                        <h3>Focus</h3>
+                        <p>Productivity boost</p>
+                    </div>
+                    <div class="card" data-mood="party">
+                        <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80')"></div>
+                        <h3>Party</h3>
+                        <p>Celebration time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Library Section -->
+            <div id="library-section" class="section">
+                <h2 class="section-title">Your Library</h2>
+                
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-value">342</div>
+                        <div class="stat-label">Total Songs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">Playlists</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">64</div>
+                        <div class="stat-label">Artists</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Genres</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-subtitle">Recently Added</h3>
+                <div class="recently-added-grid grid"></div>
+                
+                <h3 class="section-subtitle">Most Played</h3>
+                <div class="most-played-grid grid"></div>
+                
+                <h3 class="section-subtitle">By Genre</h3>
+                <div class="by-genre-grid grid"></div>
+                
+                <h3 class="section-subtitle">Top Artists</h3>
+                <div class="top-artists-grid grid"></div>
+            </div>
+            
+            <!-- Playlist Detail Section -->
+            <div id="playlist-detail-section" class="section">
+                <h2 class="section-title">Current Playlist</h2>
+                
+                <div class="playlist-view">
+                    <div class="playlist-info">
+                        <div class="album-art" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'); height: 200px; margin-bottom: 20px;"></div>
+                        <h3>My Favorite Mix</h3>
+                        <p>Created by You</p>
+                        <p>24 songs • 1h 42m</p>
+                        <div style="margin-top: 20px;">
+                            <button class="form-submit" style="margin-bottom: 10px;"><i class="fas fa-play"></i> Play All</button>
+                            <button class="form-submit" style="background-color: var(--secondary-color);"><i class="fas fa-random"></i> Shuffle</button>
+                        </div>
+                    </div>
+                    
+                    <div class="playlist-tracks">
+                        <div class="track-item">
+                            <div class="track-number">1</div>
+                            <div class="track-info">
+                                <div class="track-title">Blinding Lights</div>
+                                <div class="track-artist">The Weeknd</div>
+                            </div>
+                            <div class="track-duration">3:20</div>
+                            <div class="track-actions">
+                                <button class="track-action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="track-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="track-item">
+                            <div class="track-number">2</div>
+                            <div class="track-info">
+                                <div class="track-title">Save Your Tears</div>
+                                <div class="track-artist">The Weeknd</div>
+                            </div>
+                            <div class="track-duration">3:35</div>
+                            <div class="track-actions">
+                                <button class="track-action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="track-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="track-item">
+                            <div class="track-number">3</div>
+                            <div class="track-info">
+                                <div class="track-title">Levitating</div>
+                                <div class="track-artist">Dua Lipa</div>
+                            </div>
+                            <div class="track-duration">3:23</div>
+                            <div class="track-actions">
+                                <button class="track-action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="track-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="track-item">
+                            <div class="track-number">4</div>
+                            <div class="track-info">
+                                <div class="track-title">Stay</div>
+                                <div class="track-artist">The Kid LAROI, Justin Bieber</div>
+                            </div>
+                            <div class="track-duration">2:21</div>
+                            <div class="track-actions">
+                                <button class="track-action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="track-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="track-item">
+                            <div class="track-number">5</div>
+                            <div class="track-info">
+                                <div class="track-title">Good 4 U</div>
+                                <div class="track-artist">Olivia Rodrigo</div>
+                            </div>
+                            <div class="track-duration">2:58</div>
+                            <div class="track-actions">
+                                <button class="track-action-btn"><i class="fas fa-heart"></i></button>
+                                <button class="track-action-btn"><i class="fas fa-ellipsis-h"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Liked Songs Section -->
+            <div id="liked-section" class="section">
+                <h2 class="section-title">Liked Songs</h2>
+                
+                <div class="stats-container">
+                    <div class="stat-value">142 Liked Songs</div>
+                    <div class="stat-label">Total Duration: 8h 24m</div>
+                    <div style="margin-top: 20px;">
+                        <button class="form-submit" style="margin-right: 10px;"><i class="fas fa-play"></i> Play All</button>
+                        <button class="form-submit" style="background-color: var(--secondary-color); margin-right: 10px;"><i class="fas fa-random"></i> Shuffle</button>
+                        <button class="form-submit" style="background-color: var(--accent-color);"><i class="fas fa-download"></i> Download</button>
+                    </div>
+                </div>
+                
+                <div class="liked-songs-grid grid"></div>
+            </div>
+            
+            <!-- Radio Section -->
+            <div id="radio-section" class="section">
+                <h2 class="section-title">Radio Stations</h2>
+                
+                <div class="radio-stations">
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-music"></i></div>
+                        <div class="radio-name">Pop Hits Radio</div>
+                        <div class="radio-genre">Top 40 • Pop</div>
+                    </div>
+                    
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-guitar"></i></div>
+                        <div class="radio-name">Rock Nation</div>
+                        <div class="radio-genre">Rock • Alternative</div>
+                    </div>
+                    
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-headphones"></i></div>
+                        <div class="radio-name">Chill Beats</div>
+                        <div class="radio-genre">Lofi • Chillhop</div>
+                    </div>
+                    
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-hiphop"></i></div>
+                        <div class="radio-name">Cartoon Song Central</div>
+                        <div class="radio-genre">Cartoon Song • Rap</div>
+                    </div>
+                    
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-drum"></i></div>
+                        <div class="radio-name">Electronic Dance</div>
+                        <div class="radio-genre">EDM • House</div>
+                    </div>
+                    
+                    <div class="radio-station">
+                        <div class="radio-icon"><i class="fas fa-record-vinyl"></i></div>
+                        <div class="radio-name">Jazz Lounge</div>
+                        <div class="radio-genre">Jazz • Blues</div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Recently Played Stations</h2>
+                <div class="recent-radios-grid grid"></div>
+            </div>
+            
+            <!-- Podcasts Section -->
+            <div id="podcasts-section" class="section">
+                <h2 class="section-title">Popular Podcasts</h2>
+                
+                <div class="podcasts-grid">
+                    <div class="podcast-card">
+                        <div class="podcast-image" style="background-image: url('https://thumbs.dreamstime.com/b/soft-abstract-green-white-background-jpg-soft-abstract-green-white-background-flowing-wave-pattern-soft-light-background-343056574.jpg')"></div>
+                        <div class="podcast-info">
+                            <div class="podcast-title">Massive Attack pull their music from Spotify</div>
+                            <div class="podcast-author">The band has removed their catalog from Spotify to protest the CEO’s investment in an AI‑military tech company and to align with the “No Music for Genocide” initiative.</div>
+                            <!-- <div class="podcast-description">Description: A podcast that breaks down pop music — what makes a hit, what makes a song catchy, and the cultural significance behind it.</div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="podcast-card">
+                        <div class="podcast-image" style="background-image: url('https://thumbs.dreamstime.com/b/soft-abstract-green-white-background-jpg-soft-abstract-green-white-background-flowing-wave-pattern-soft-light-background-343056574.jpg')"></div>
+                        <div class="podcast-info">
+                            <div class="podcast-title">Clairo signs with Atlantic Records</div>
+                            <div class="podcast-author">Singer-songwriter Clairo has officially joined Atlantic (under Warner Music Group), after previously working with other labels. She says the move aligns better with her artistic vision.</div>
+                            <!-- <div class="podcast-description">Why Listen: Deep dive into how songs are made, straight from the artists themselves.</div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="podcast-card">
+                        <div class="podcast-image" style="background-image: url('https://thumbs.dreamstime.com/b/soft-abstract-green-white-background-jpg-soft-abstract-green-white-background-flowing-wave-pattern-soft-light-background-343056574.jpg')"></div>
+                        <div class="podcast-info">
+                            <div class="podcast-title">MGK announces “The Lost Americana Tour”</div>
+                            <div class="podcast-author">Machine Gun Kelly will be launching his biggest global tour yet in support of his new album The Lost Americana. The tour starts in November 2025 and goes through 2026, with multiple legs across North America, Europe, Australia, and New Zealand.</div>
+                            <!-- <div class="podcast-description">Exploring the latest scientific discoveries and breakthroughs with leading researchers.</div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="podcast-card">
+                        <div class="podcast-image" style="background-image: url('https://thumbs.dreamstime.com/b/soft-abstract-green-white-background-jpg-soft-abstract-green-white-background-flowing-wave-pattern-soft-light-background-343056574.jpg')"></div>
+                        <div class="podcast-info">
+                            <div class="podcast-title">Madonna is working on a new dance album</div>
+                            <div class="podcast-author">She’s returning to Warner Records and collaborating again with DJ Stuart Price (who previously worked on Confessions on a Dance Floor). The album is due in 2026.</div>
+                            <!-- <div class="podcast-description">Interviews with successful entrepreneurs and business leaders sharing their insights.</div> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Your Subscriptions</h2>
+                <div class="subscriptions-grid grid"></div>
+            </div>
+            
+            <!-- Upload Section -->
+            <div id="upload-section" class="section">
+                <h2 class="section-title">Upload Music</h2>
+                
+                <div class="upload-form">
+                    <div class="form-group">
+                        <label for="song-title">Song Title</label>
+                        <input type="text" id="song-title" placeholder="Enter song title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-artist">Artist</label>
+                        <input type="text" id="song-artist" placeholder="Enter artist name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-genre">Genre</label>
+                        <select id="song-genre">
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Electronic">Electronic</option>
+                            <option value="Cartoon Song">Cartoon Song</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Metal">Metal</option>
+                            <option value="Classical">Classical</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-duration">Duration</label>
+                        <input type="text" id="song-duration" placeholder="e.g. 3:45">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-artwork">Artwork URL</label>
+                        <input type="text" id="song-artwork" placeholder="Paste image URL">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-file">Audio File</label>
+                        <input type="file" id="song-file" accept="audio/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="song-lyrics">Lyrics (Optional)</label>
+                        <textarea id="song-lyrics" placeholder="Enter song lyrics" rows="5" style="width: 100%; padding: 10px; border-radius: 6px; background-color: var(--background-light); border: 1px solid var(--background-lighter); color: var(--text-primary); font-family: var(--font-secondary);"></textarea>
+                    </div>
+                    
+                    <button class="form-submit">Upload Song</button>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings-section" class="section">
+                <h2 class="section-title">Settings</h2>
+                
+                <div class="settings-panel">
+                    <div class="setting-item">
+                        <label for="theme-select">Theme</label>
+                        <select id="theme-select">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="font-size-slider">Font Size</label>
+                        <input type="range" id="font-size-slider" min="12" max="24" value="16">
+                        <span id="font-size-value">16px</span>
+                    </div>
+                    
+                    <div class="setting-item custom-theme-options hidden">
+                        <label>Custom Colors</label>
+                        <div class="color-picker">
+                            <div class="color-input">
+                                <label for="primary-color-input">Primary Color</label>
+                                <input type="color" id="primary-color-input" value="#2ecc71">
+                            </div>
+                            <div class="color-input">
+                                <label for="secondary-color-input">Secondary Color</label>
+                                <input type="color" id="secondary-color-input" value="#1abc9c">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="audio-quality">Audio Quality</label>
+                        <select id="audio-quality">
+                            <option value="high">High (320kbps)</option>
+                            <option value="medium" selected>Medium (192kbps)</option>
+                            <option value="low">Low (128kbps)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="language-select">Language</label>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="notification-toggle">
+                            <input type="checkbox" id="notification-toggle" checked>
+                            Enable Notifications
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="autoplay-toggle">
+                            <input type="checkbox" id="autoplay-toggle" checked>
+                            Autoplay Similar Songs
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="equalizer-toggle">
+                            <input type="checkbox" id="equalizer-toggle">
+                            Enable Equalizer
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="visualizer-toggle">
+                            <input type="checkbox" id="visualizer-toggle">
+                            Enable Visualizer
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="lyrics-toggle">
+                            <input type="checkbox" id="lyrics-toggle" checked>
+                            Show Lyrics When Available
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="sleep-timer-toggle">
+                            <input type="checkbox" id="sleep-timer-toggle">
+                            Enable Sleep Timer
+                        </label>
+                    </div>
+                </div>
+                
+                <h3 class="section-subtitle">Equalizer</h3>
+                <div class="equalizer-container">
+                    <div class="eq-band">
+                        <label for="eq-low">Low Frequencies</label>
+                        <input type="range" id="eq-low" min="-12" max="12" value="0" class="eq-slider">
+                    </div>
+                    
+                    <div class="eq-band">
+                        <label for="eq-mid">Mid Frequencies</label>
+                        <input type="range" id="eq-mid" min="-12" max="12" value="0" class="eq-slider">
+                    </div>
+                    
+                    <div class="eq-band">
+                        <label for="eq-high">High Frequencies</label>
+                        <input type="range" id="eq-high" min="-12" max="12" value="0" class="eq-slider">
+                    </div>
+                    
+                    <div class="audio-presets">
+                        <div class="audio-preset" data-preset="flat">Flat</div>
+                        <div class="audio-preset" data-preset="bass">Bass Boost</div>
+                        <div class="audio-preset" data-preset="treble">Treble Boost</div>
+                        <div class="audio-preset" data-preset="vocal">Vocal Boost</div>
+                        <div class="audio-preset" data-preset="rock">Rock</div>
+                        <div class="audio-preset" data-preset="jazz">Jazz</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-subtitle">Data Management</h3>
+                <div class="settings-panel">
+                    <div class="setting-item">
+                        <label for="export-data">Export Your Data</label>
+                        <button id="export-data" class="form-submit" style="background-color: var(--accent-color);">Export Data</button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="import-data">Import Data</label>
+                        <input type="file" id="import-data" accept=".json">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="clear-data">Clear All Data</label>
+                        <button id="clear-data" class="form-submit" style="background-color: var(--error-color);">Clear Data</button>
+                    </div>
+                </div>
+                
+                <button class="save-settings-btn">Save Settings</button>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div id="stats-section" class="section">
+                <h2 class="section-title">Your Listening Statistics</h2>
+                
+                <div class="stats-grid" style="margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-value">1,248</div>
+                        <div class="stat-label">Total Songs Played</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">342</div>
+                        <div class="stat-label">Hours Listened</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">64</div>
+                        <div class="stat-label">Artists Discovered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">Genres Explored</div>
+                    </div>
+                </div>
+                
+                <h3 class="section-subtitle">Top Artists</h3>
+                <div class="top-artists-stats grid"></div>
+                
+                <h3 class="section-subtitle">Top Genres</h3>
+                <div class="top-genres-stats grid"></div>
+                
+                <h3 class="section-subtitle">Listening History</h3>
+                <div class="listening-history">
+                    <div class="history-chart" style="height: 200px; background-color: var(--card-bg); border-radius: 8px; margin-bottom: 30px; display: flex; align-items: flex-end; justify-content: space-around; padding: 20px;">
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 60px;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 90px;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 120px;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 150px;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 100px;"></div>
+                        <div class="history-bar" style="width: 30px; background-color: var(--primary-color); margin: 0 5px; border-radius: 4px 4px 0 0; height: 70px;"></div>
+                    </div>
+                </div>
+                
+                <h3 class="section-subtitle">Achievements</h3>
+                <div class="achievements-container">
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon"><i class="fas fa-headphones"></i></div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">First Listen</div>
+                                <div class="achievement-desc">Play your first song</div>
+                                <div class="achievement-progress">
+                                    <div class="achievement-progress-bar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon"><i class="fas fa-heart"></i></div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">Music Lover</div>
+                                <div class="achievement-desc">Like 50 songs</div>
+                                <div class="achievement-progress">
+                                    <div class="achievement-progress-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon"><i class="fas fa-globe"></i></div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">World Traveler</div>
+                                <div class="achievement-desc">Listen to music from 10 different countries</div>
+                                <div class="achievement-progress">
+                                    <div class="achievement-progress-bar" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <div class="achievement-icon"><i class="fas fa-infinity"></i></div>
+                            <div class="achievement-info">
+                                <div class="achievement-title">Marathon Listener</div>
+                                <div class="achievement-desc">Listen for 24 hours straight</div>
+                                <div class="achievement-progress">
+                                    <div class="achievement-progress-bar" style="width: 15%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Music Quiz Section -->
+            <div id="game-section" class="section">
+                <h2 class="section-title">Music Quiz</h2>
+                
+                <div class="quiz-container">
+                    <div class="quiz-score">Score: 0</div>
+                    <div class="quiz-question">Guess the song by listening to the preview</div>
+                    
+                    <div class="control-buttons" style="justify-content: center; margin-bottom: 20px;">
+                        <button class="control-btn"><i class="fas fa-play"></i></button>
+                    </div>
+                    
+                    <div class="quiz-options">
+                        <div class="quiz-option">Song Option 1</div>
+                        <div class="quiz-option">Song Option 2</div>
+                        <div class="quiz-option">Song Option 3</div>
+                        <div class="quiz-option">Song Option 4</div>
+                    </div>
+                    
+                    <button class="form-submit">Next Question</button>
+                </div>
+                
+                <h3 class="section-subtitle">Leaderboard</h3>
+                <div class="leaderboard">
+                    <div class="leaderboard-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: var(--card-bg); border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="font-weight: 600; margin-right: 15px;">1</div>
+                            <div>You</div>
+                        </div>
+                        <div>1250 points</div>
+                    </div>
+                    
+                    <div class="leaderboard-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: var(--card-bg); border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="font-weight: 600; margin-right: 15px;">2</div>
+                            <div>MusicMaster</div>
+                        </div>
+                        <div>980 points</div>
+                    </div>
+                    
+                    <div class="leaderboard-item" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: var(--card-bg); border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="font-weight: 600; margin-right: 15px;">3</div>
+                            <div>SongBird</div>
+                        </div>
+                        <div>760 points</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discover Section -->
+            <div id="discover-section" class="section">
+                <!-- <h2 class="section-title">Recommended For You</h2> -->
+                
+                <div class="ai-recommendations">
+                    <div class="ai-header">
+                        <div class="ai-icon"><i class="fas fa-robot"></i></div>
+                        <div class="ai-title">AI-Powered Recommendations</div>
+                    </div>
+                    <div class="ai-description">Based on your listening history, mood, and preferences, we think you'll enjoy these tracks</div>
+                    
+                    <div class="recommended-tracks grid"></div>
+                </div>
+                
+                <h2 class="section-title">New Releases You Might Like</h2>
+                <div class="new-releases-grid grid"></div>
+                
+                <h2 class="section-title">Artists Similar to Your Favorites</h2>
+                <div class="similar-artists-grid grid"></div>
+                
+                <h2 class="section-title">Mood Analysis</h2>
+                <div class="mood-detection">
+                    <div class="mood-result">
+                        <div class="mood-icon"><i class="fas fa-smile"></i></div>
+                        <div class="mood-name">Upbeat & Energetic</div>
+                        <div class="mood-description">Your recent listening suggests you're in a positive and active mood</div>
+                    </div>
+                    
+                    <h3 class="section-subtitle">Recommended for your current mood</h3>
+                    <div class="mood-songs grid"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Player Controls -->
+        <div class="player-controls">
+            <div class="song-info">
+                <div id="current-album-art"></div>
+                <div class="song-details">
+                    <h3>Select a song to play</h3>
+                    <p>Artist Name</p>
+                </div>
+            </div>
+            
+            <div class="player-buttons">
+                <div class="control-buttons">
+                    <button class="control-btn shuffle-btn" title="Shuffle">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn prev-btn" title="Previous">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-pause-btn" title="Play/Pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn next-btn" title="Next">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn repeat-btn" title="Repeat">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                
+                <div class="time-display">
+                    <span class="current-time">0:00</span>
+                    <span class="total-time">0:00</span>
+                </div>
+            </div>
+            
+            <div class="additional-controls">
+                <button class="control-btn" title="Lyrics">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="control-btn" title="Add to Playlist">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="volume-container">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                </div>
+                <button class="control-btn" title="Visualizer">
+                    <i class="fas fa-wave-square"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>This function is now active</span>
+    </div>
+    
+    
+    
+    <!-- Sleep Timer -->
+    <div class="sleep-timer-container">
+        <h3 class="section-subtitle">Sleep Timer</h3>
+        <p>Stop playback after:</p>
+        <div class="timer-options">
+            <button class="timer-btn">15 min</button>
+            <button class="timer-btn">30 min</button>
+            <button class="timer-btn">45 min</button>
+            <button class="timer-btn">60 min</button>
+            <button class="timer-btn">90 min</button>
+        </div>
+    </div>
+    
+    <!-- Mini Player -->
+    <div class="mini-player">
+        <div class="mini-player-header">
+            <div class="mini-player-title">Now Playing</div>
+            <button class="mini-player-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mini-player-progress">
+            <div class="mini-player-progress-bar"></div>
+        </div>
+        <div class="mini-player-controls">
+            <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn"><i class="fas fa-play"></i></button>
+            <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <!-- <div class="toast-container">
+        <div class="toast success">
+            <i class="fas fa-check-circle"></i>
+            <span>Song added to playlist successfully</span>
+        </div>
+    </div> -->
+    
+    <!-- Easter Egg -->
+    <div class="easter-egg">
+        <div class="easter-egg-content">
+            <div class="easter-egg-title">Congratulations!</div>
+            <div class="easter-egg-message">You've discovered a hidden feature! As a reward, enjoy an exclusive playlist curated just for you.</div>
+            <button class="easter-egg-close">Enjoy the music!</button>
+        </div>
+    </div>
+
+<script src="Java/spotify.js"></script>
+</body>
+</html>
